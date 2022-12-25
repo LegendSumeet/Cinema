@@ -1,8 +1,8 @@
 # Data User
-list_user = [{'nama': 'sumeet', 'email': 'vi@gmail.com', 'password': 'sumeet', 'saldo': 104100, 'riwayat': [{'Waktu Beli': '20:40 25-12-2022', 'Lokasi': 'XX5 Aeon Mall BSD\nStudio 1', 'Judul': 'Black Adam', 'Jadwal Tayang': '21:00 25-12-2022', 'Ticket': 'F6', 'Total': 'Rp45.000,00'}, {'Waktu Beli': '00:03 26-12-2022', 'Lokasi': 'XX5 Plaza Indonesia\nStudio 1', 'Judul': 'Black Adam', 'Jadwal Tayang': '21:00 26-12-2022', 'Ticket': 'B5', 'Total': 'Rp450,00'}, {'Waktu Beli': '00:11 26-12-2022', 'Lokasi': 'XX5 Aeon Mall BSD\nStudio 1', 'Judul': 'Black Adam', 'Jadwal Tayang': '13:30 26-12-2022', 'Ticket': 'E5', 'Total': 'Rp450,00'}]}]
+list_user = [{'nama': 'sumeet', 'email': 'vi@gmail.com', 'password': 'sumeet', 'saldo': 103250, 'riwayat': [{'Waktu Beli': '20:40 25-12-2022', 'Lokasi': 'XX5 Aeon Mall BSD\nStudio 1', 'Judul': 'Black Adam', 'Jadwal Tayang': '21:00 25-12-2022', 'Ticket': 'F6', 'Total': 'Rp45.000,00'}, {'Waktu Beli': '00:03 26-12-2022', 'Lokasi': 'XX5 Plaza Indonesia\nStudio 1', 'Judul': 'Black Adam', 'Jadwal Tayang': '21:00 26-12-2022', 'Ticket': 'B5', 'Total': 'Rp450,00'}, {'Waktu Beli': '00:11 26-12-2022', 'Lokasi': 'XX5 Aeon Mall BSD\nStudio 1', 'Judul': 'Black Adam', 'Jadwal Tayang': '13:30 26-12-2022', 'Ticket': 'E5', 'Total': 'Rp450,00'}, {'Waktu Beli': '00:24 26-12-2022', 'Lokasi': 'XX5 Aeon Mall BSD\nStudio 2', 'Judul': 'AMSTERDAM', 'Jadwal Tayang': '13:30 26-12-2022', 'Ticket': 'A1', 'Total': 'Rp400,00'}, {'buytime': '00:30 26-12-2022', 'hall': 'XX5 Aeon Mall BSD\nStudio 1', 'movie': 'Black Adam', 'date and time': '13:30 26-12-2022', 'Ticket': 'E4', 'Total': 'Rp450,00'}]}]
 
 # Data Lokasi
-location =  ['XX5 Aeon Mall BSD', 'XX5 Ciwalk Bandung', 'XX5 Plaza Indonesia']
+location =  ['PVR', 'INOX', 'KORUM MALL']
 
 # Data Waktu
 time_str = ['13:30', '16:00', '18:30', '21:00']
@@ -120,7 +120,7 @@ movie_now = [
         'writer': 'Adam Sztykiel, Rory Haines, Sohrab Noshirvani',
         'cast': 'Dwayne Johnson, Viola Davis, Sarah Shahi, Pierce Brosnan, Noah Centineo, Aldis Hodge, Angel Rosario Jr., Joseph Gatt, Mohammed Amer, Quintessa Swindell',
         'price': 450,
-        'sold_seat': {'XX5 Aeon Mall BSD_0': {'25-12-2022': {'21:00': [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, True, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]}, '26-12-2022': {'13:30': [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, True, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]}}, 'XX5 Ciwalk Bandung_0': {}, 'XX5 Plaza Indonesia_0': {'26-12-2022': {'21:00': [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, True, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]}}}
+        'sold_seat': {'PVR_0': {'25-12-2022': {'21:00': [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, True, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]}, '26-12-2022': {'13:30': [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, True, True, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]}, '27-12-2022': {'13:30': [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]}}, 'INOX_0': {}, 'KORUM MALL_0': {'26-12-2022': {'21:00': [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, True, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]}}}
     },
     {
         'img_on': 'images/amsterdam_on.png',
@@ -135,7 +135,7 @@ movie_now = [
         'writer': 'David O. Russell',
         'cast': 'Christian Bale, Margot Robbie, John David Washington, Rami Malek, Mike Myers, Taylor Swift, Zoe Saldana, Robert De Niro, Anya Taylor-joy, Chris Rock, Michael Shannon.',
         'price': 400,
-        'sold_seat': {'XX5 Aeon Mall BSD_1': {'26-12-2022': {'13:30': [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]}}, 'XX5 Ciwalk Bandung_1': {}, 'XX5 Plaza Indonesia_1': {}}        
+        'sold_seat': {'PVR_1': {'26-12-2022': {'13:30': [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [True, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]}}, 'INOX_1': {}, 'KORUM MALL_1': {}}        
     },
     {
         'img_on': 'images/doctorg_on.png',
@@ -150,7 +150,7 @@ movie_now = [
         'writer': 'Saurabh Bharat',
         'cast': 'Ayushmann Khuranna, Rakul Preet Singh, Shefali Shah, Sheeba Chaddha, Abhinay Raj Singh, Paresh Pahuja, Jhumma Mitra, Azzy Bagria',
         'price': 500,
-        'sold_seat': {'XX5 Aeon Mall BSD_2': {}, 'XX5 Ciwalk Bandung_2': {}, 'XX5 Plaza Indonesia_2': {}}
+        'sold_seat': {'PVR_2': {}, 'INOX_2': {}, 'KORUM MALL_2': {}}
     },
     {
         'img_on': 'images/onepiece_on.png',
@@ -165,6 +165,6 @@ movie_now = [
         'writer': 'Tsutomu Kuroiwa',
         'cast': 'Kazuya Nakai, Kaori Nazuka, Akemi Okamura, Kappei Yamaguchi, Mayumi Tanaka, Yuriko Yamaguchi, Hiroaki Hirata, Shuichi Ikeda',
         'price': 500,
-        'sold_seat': {'XX5 Aeon Mall BSD_3': {}, 'XX5 Ciwalk Bandung_3': {}, 'XX5 Plaza Indonesia_3': {}},
+        'sold_seat': {'PVR_3': {}, 'INOX_3': {}, 'KORUM MALL_3': {}},
     }
 ]
