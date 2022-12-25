@@ -8,7 +8,7 @@ import locale
 import datetime
 from database import *
 
-# Define Date (Day. Month, Year) and Time (Hour & Minute)
+
 today_date = datetime.date.today().strftime("%d-%m-%Y")
 tomorrow_date = (datetime.date.today() + datetime.timedelta(days=1)).strftime("%d-%m-%Y")
 time_now = datetime.datetime.now()
@@ -69,7 +69,7 @@ cancel_on = tk.PhotoImage(file="images/cancel_on.png")
 
 # Callback function bila Entry/input box kosong
 def onclick_entry(event, word):
-    if event.widget.get() == f"{word}" and (event.widget.get() == "Password" or event.widget.get() == "Konfirmasi Password" or event.widget.get() == "Kode Validasi"):
+    if event.widget.get() == f"{word}" and (event.widget.get() == "Password" or event.widget.get() == "confirm password" or event.widget.get() == "code invitation"):
         event.widget.delete(0, "end")
         event.widget.config(show="*")
     elif event.widget.get() == f"{word}":
@@ -80,7 +80,7 @@ def onleave_entry(event, word):
         event.widget.insert(0, f"{word}")
         event.widget.config(show="")
 
-# Fungsi Mengganti Image Saat Ditunjuk Mouse
+
 def onhover_image(event, img):
     event.widget.config(image=img)
 
@@ -110,10 +110,10 @@ def Login():
                 index_user = i
                 break
         if user_found:
-            showinfo("Berhasil login", f"Selamat datang, {akun_email}!")
+            showinfo("login done", f"welcome, {akun_email}!")
             LoginToList()
         else:
-            showerror("Invalid", "Email atau password salah")
+            showerror("Invalid", "Email and Password doesn't match")
     
     # Transisi dari Login ke Register
     def LoginToRegister():
@@ -158,7 +158,7 @@ def Login():
 
     # Tidak punya akun
     noacc_frame = tk.Frame(login_frame, bg="#171a30")
-    label_register = tk.Label(noacc_frame, text="Belum punya akun?", fg="#eaebf1", bg="#171a30", font=("Segoe UI", 11, "bold")).pack(side="left")
+    label_register = tk.Label(noacc_frame, text="New to us do ", fg="#eaebf1", bg="#171a30", font=("Segoe UI", 11, "bold")).pack(side="left")
     tombol_register = tk.Button(noacc_frame, text="Register", command=LoginToRegister,  font=("Segoe UI", 11, "bold"), borderwidth=0, cursor="hand2", bg="#171a30", fg="#fc094c", activebackground="#171a30", activeforeground="#fc094c").pack()
     noacc_frame.pack()
 
@@ -214,7 +214,7 @@ def Register():
     # Input nama lengkap
     nama = tk.Entry(register_frame, width=36, fg="#eaebf1", border=0, bg="#171a30", font=("Segoe UI", 11), insertbackground="#eaebf1")
     nama.pack()
-    nama.insert(0, "Nama Lengkap")
+    nama.insert(0, "Name")
     nama.bind("<FocusIn>", lambda event: onclick_entry(event, "Nama Lengkap"))
     nama.bind("<FocusOut>", lambda event: onleave_entry(event, "Nama Lengkap"))
     frame2 = tk.Frame(register_frame, width=295, height=2, bg="#eaebf1").pack(pady=(5, 20))
@@ -238,7 +238,7 @@ def Register():
     # Konfirmasi Password
     conf_pasw = tk.Entry(register_frame, width=36, fg="#eaebf1", border=0, bg="#171a30", font=("Segoe UI", 11), insertbackground="#eaebf1")
     conf_pasw.pack()
-    conf_pasw.insert(0, "Konfirmasi Password")
+    conf_pasw.insert(0, "confirm password")
     conf_pasw.bind("<FocusIn>", lambda event: onclick_entry(event, "Konfirmasi Password"))
     conf_pasw.bind("<FocusOut>", lambda event: onleave_entry(event, "Konfirmasi Password"))
     frame3 = tk.Frame(register_frame, width=295, height=2, bg="#eaebf1").pack(pady=(5, 20))
@@ -251,7 +251,7 @@ def Register():
 
     # Sudah punya akun
     sudah_akun = tk.Frame(register_frame, bg="#171a30")
-    ada_akun = tk.Label(sudah_akun, text="Saya sudah punya akun?", fg="#eaebf1", bg="#171a30", font=("Segoe UI", 11, "bold")).pack(side="left")
+    ada_akun = tk.Label(sudah_akun, text="already have account", fg="#eaebf1", bg="#171a30", font=("Segoe UI", 11, "bold")).pack(side="left")
     tombol_login = tk.Button(sudah_akun, width=6, text="Login", border=0, bg="#171a30", cursor="hand2", fg="#fc094c", activebackground="#171a30", activeforeground="#fc094c", font=("Segoe UI", 11, "bold"), command=RegisterToLogin).pack()
     sudah_akun.pack()
 
@@ -362,7 +362,7 @@ def TopUp():
         method = selected_method.get()
         price = selected_price.get()
         if method == "N/A" or price == 0:
-            showerror("Pilih Saldo/Metode!", f"Pilih saldo atau metode pembayaran yang benar!")
+            showerror("Select Balance/Method!", f"Select the correct balance or payment method!")
         else:
             if kode_valid.get() == list_validasi[price][method]:
                 read_file = open('database.py', 'r')
@@ -378,7 +378,7 @@ def TopUp():
                 write_file.close()
 
                 sisa_saldo.set(locale.currency(list_user[index_user]['saldo'], grouping=True))
-                showinfo("Top Up Berhasil!", f"Top up Anda sebesar {locale.currency(price, grouping=True)} berhasil!")
+                showinfo("Successful Top Up!", f"Your top up is equal to {locale.currency(price, grouping=True)} done!")
                 root.focus_set()
                 kode_valid.set("")
                 selected_price.set(0)
@@ -394,78 +394,70 @@ def TopUp():
     # Header
     MenuHeader(saldo_frame, "saldo")
 
-    # Inisialisasi Kode Input dan Sisa Saldo User
+
     kode_valid = tk.StringVar()
     sisa_saldo = tk.StringVar()
     sisa_saldo.set(locale.currency(list_user[index_user]['saldo'], grouping=True))
 
     # Title
-    saldo_title = tk.Label(saldo_frame, text="Top Up Saldo", font=("Segoe UI", "30", "bold"), background="#171a30", fg="#fc094c").pack(pady=15)
-
-    # Saldo dan Nominal User
-    frame_nomimal = tk.Frame(saldo_frame, bg="#171a30", width=1000, height=600)
-    frame_nomimal.pack(pady=5)
-    label_saldo = tk.Label(frame_nomimal, text="Saldo Anda: ", font=("Segoe UI", 20, "bold"), fg="white", bg="#171a30").pack(side="left")
-    label_sisa_saldo = tk.Label(frame_nomimal, textvariable=sisa_saldo, font=("Segoe UI", 20, "bold"), fg="#50c143", bg="#171a30").pack()
+    saldo_title = tk.Label(saldo_frame, text="Top Up", font=("Segoe UI", "30", "bold"), background="#171a30", fg="#fc094c").pack(pady=15)
 
     # Frame Memilih Nominal Topup
     frame_pilih_nominal = tk.Frame(saldo_frame, background="#171a30")
     frame_pilih_nominal.pack(pady=15)
     selected_price = tk.IntVar(value=0)
-    label_nominal_topup = tk.Label(frame_pilih_nominal, text="Pilih Nominal", font=("Segoe UI", 16, "bold"), fg="#fc094c", bg="#171a30").pack(pady=5)
+    label_nominal_topup = tk.Label(frame_pilih_nominal, text="select amount", font=("Segoe UI", 16, "bold"), fg="#fc094c", bg="#171a30").pack(pady=5)
     # 50 ribu
-    tombol_50ribu = tk.Radiobutton(frame_pilih_nominal, text="Rp50.000,00", value=50000, variable=selected_price, font=("Segoe UI", 14, "bold"), image=button_price_off, selectimage=button_price_on, bg="#171a30", fg="#eaebf1", activeforeground="#eaebf1", activebackground="#171a30", selectcolor="#171a30", cursor="hand2", borderwidth=0, indicatoron=False, compound="center")
+    tombol_50ribu = tk.Radiobutton(frame_pilih_nominal, text="Rs50.000,00", value=50000, variable=selected_price, font=("Segoe UI", 14, "bold"), image=button_price_off, selectimage=button_price_on, bg="#171a30", fg="#eaebf1", activeforeground="#eaebf1", activebackground="#171a30", selectcolor="#171a30", cursor="hand2", borderwidth=0, indicatoron=False, compound="center")
     tombol_50ribu.pack(side="left", padx=20)
     tombol_50ribu.bind('<Enter>', lambda event, imgs=button_price_on: onhover_image(event, imgs))
     tombol_50ribu.bind('<Leave>', lambda event, imgs=button_price_off: onleave_image(event, imgs))
     # 100 Ribu
-    tombol_100ribu = tk.Radiobutton(frame_pilih_nominal, text="Rp100.000,00", value=100000, variable=selected_price, font=("Segoe UI", 14, "bold"), image=button_price_off, selectimage=button_price_on, bg="#171a30", fg="#eaebf1", activeforeground="#eaebf1", activebackground="#171a30", selectcolor="#171a30", cursor="hand2", borderwidth=0, indicatoron=False, compound="center")
+    tombol_100ribu = tk.Radiobutton(frame_pilih_nominal, text="Rs100.000,00", value=100000, variable=selected_price, font=("Segoe UI", 14, "bold"), image=button_price_off, selectimage=button_price_on, bg="#171a30", fg="#eaebf1", activeforeground="#eaebf1", activebackground="#171a30", selectcolor="#171a30", cursor="hand2", borderwidth=0, indicatoron=False, compound="center")
     tombol_100ribu.pack(side="left", padx=20)
     tombol_100ribu.bind('<Enter>', lambda event, imgs=button_price_on: onhover_image(event, imgs))
     tombol_100ribu.bind('<Leave>', lambda event, imgs=button_price_off: onleave_image(event, imgs))
     # 150 Ribu
-    tombol_150ribu = tk.Radiobutton(frame_pilih_nominal, text="Rp150.000,00", value=150000, variable=selected_price, font=("Segoe UI", 14, "bold"), image=button_price_off, selectimage=button_price_on, bg="#171a30", fg="#eaebf1", activeforeground="#eaebf1", activebackground="#171a30", selectcolor="#171a30", cursor="hand2", borderwidth=0, indicatoron=False, compound="center")
+    tombol_150ribu = tk.Radiobutton(frame_pilih_nominal, text="Rs150.000,00", value=150000, variable=selected_price, font=("Segoe UI", 14, "bold"), image=button_price_off, selectimage=button_price_on, bg="#171a30", fg="#eaebf1", activeforeground="#eaebf1", activebackground="#171a30", selectcolor="#171a30", cursor="hand2", borderwidth=0, indicatoron=False, compound="center")
     tombol_150ribu.pack(side="left", padx=20)
     tombol_150ribu.bind('<Enter>', lambda event, imgs=button_price_on: onhover_image(event, imgs))
     tombol_150ribu.bind('<Leave>', lambda event, imgs=button_price_off: onleave_image(event, imgs))
     # 200 Ribu
-    tombol_200ribu = tk.Radiobutton(frame_pilih_nominal, text="Rp200.000,00", value=200000, variable=selected_price, font=("Segoe UI", 14, "bold"), image=button_price_off, selectimage=button_price_on, bg="#171a30", fg="#eaebf1", activeforeground="#eaebf1", activebackground="#171a30", selectcolor="#171a30", cursor="hand2", borderwidth=0, indicatoron=False, compound="center")
+    tombol_200ribu = tk.Radiobutton(frame_pilih_nominal, text="Rs200.000,00", value=200000, variable=selected_price, font=("Segoe UI", 14, "bold"), image=button_price_off, selectimage=button_price_on, bg="#171a30", fg="#eaebf1", activeforeground="#eaebf1", activebackground="#171a30", selectcolor="#171a30", cursor="hand2", borderwidth=0, indicatoron=False, compound="center")
     tombol_200ribu.pack(padx=20)
     tombol_200ribu.bind('<Enter>', lambda event, imgs=button_price_on: onhover_image(event, imgs))
     tombol_200ribu.bind('<Leave>', lambda event, imgs=button_price_off: onleave_image(event, imgs))    
-
-    # FramePilih Metode Pembayaran
     frame_pilih_pembayaran = tk.Frame(saldo_frame, background="#171a30")
     frame_pilih_pembayaran.pack(pady=15)
     selected_method = tk.StringVar(value="N/A")
-    label_metode_pembayaran = tk.Label(frame_pilih_pembayaran, text="Pilih Metode Pembayaran", font=("Segoe UI", 16, "bold"), fg="#fc094c", bg="#171a30").pack(pady=5)
+    label_metode_pembayaran = tk.Label(frame_pilih_pembayaran, text="select the mode", font=("Segoe UI", 16, "bold"), fg="#fc094c", bg="#171a30").pack(pady=5)
     # Gopay
-    tombol_gopay = tk.Radiobutton(frame_pilih_pembayaran, text="GoPay", value="gopay", variable=selected_method, font=("Segoe UI", 14, "bold"), image=button_method_off, selectimage=button_method_on, bg="#171a30", fg="#eaebf1", activeforeground="#eaebf1", activebackground="#171a30", selectcolor="#171a30", cursor="hand2", borderwidth=0, indicatoron=False, compound="center")
+    tombol_gopay = tk.Radiobutton(frame_pilih_pembayaran, text="GooglePay", value="gopay", variable=selected_method, font=("Segoe UI", 14, "bold"), image=button_method_off, selectimage=button_method_on, bg="#171a30", fg="#eaebf1", activeforeground="#eaebf1", activebackground="#171a30", selectcolor="#171a30", cursor="hand2", borderwidth=0, indicatoron=False, compound="center")
     tombol_gopay.pack(side="left", padx=15)
     tombol_gopay.bind('<Enter>', lambda event, imgs=button_method_on: onhover_image(event, imgs))
     tombol_gopay.bind('<Leave>', lambda event, imgs=button_method_off: onleave_image(event, imgs))
     # Ovo
-    tombol_ovo = tk.Radiobutton(frame_pilih_pembayaran, text="OVO", value="ovo", variable=selected_method, font=("Segoe UI", 14, "bold"), image=button_method_off, selectimage=button_method_on, bg="#171a30", fg="#eaebf1", activeforeground="#eaebf1", activebackground="#171a30", selectcolor="#171a30", cursor="hand2", borderwidth=0, indicatoron=False, compound="center")
+    tombol_ovo = tk.Radiobutton(frame_pilih_pembayaran, text="paytm", value="ovo", variable=selected_method, font=("Segoe UI", 14, "bold"), image=button_method_off, selectimage=button_method_on, bg="#171a30", fg="#eaebf1", activeforeground="#eaebf1", activebackground="#171a30", selectcolor="#171a30", cursor="hand2", borderwidth=0, indicatoron=False, compound="center")
     tombol_ovo.pack(side="left", padx=15)
     tombol_ovo.bind('<Enter>', lambda event, imgs=button_method_on: onhover_image(event, imgs))
     tombol_ovo.bind('<Leave>', lambda event, imgs=button_method_off: onleave_image(event, imgs))
     # BCA
-    tombol_bca = tk.Radiobutton(frame_pilih_pembayaran, text="BCA", value="bca", variable=selected_method, font=("Segoe UI", 14, "bold"), image=button_method_off, selectimage=button_method_on, bg="#171a30", fg="#eaebf1", activeforeground="#eaebf1", activebackground="#171a30", selectcolor="#171a30", cursor="hand2", borderwidth=0, indicatoron=False, compound="center")
+    tombol_bca = tk.Radiobutton(frame_pilih_pembayaran, text="phonepay", value="bca", variable=selected_method, font=("Segoe UI", 14, "bold"), image=button_method_off, selectimage=button_method_on, bg="#171a30", fg="#eaebf1", activeforeground="#eaebf1", activebackground="#171a30", selectcolor="#171a30", cursor="hand2", borderwidth=0, indicatoron=False, compound="center")
     tombol_bca.pack(side="left", padx=15)
     tombol_bca.bind('<Enter>', lambda event, imgs=button_method_on: onhover_image(event, imgs))
     tombol_bca.bind('<Leave>', lambda event, imgs=button_method_off: onleave_image(event, imgs))
     # Mandiri
-    tombol_mandiri = tk.Radiobutton(frame_pilih_pembayaran, text="Mandiri", value="mandiri", variable=selected_method, font=("Segoe UI", 14, "bold"), image=button_method_off, selectimage=button_method_on, bg="#171a30", fg="#eaebf1", activeforeground="#eaebf1", activebackground="#171a30", selectcolor="#171a30", cursor="hand2", borderwidth=0, indicatoron=False, compound="center")
+    tombol_mandiri = tk.Radiobutton(frame_pilih_pembayaran, text="upi", value="mandiri", variable=selected_method, font=("Segoe UI", 14, "bold"), image=button_method_off, selectimage=button_method_on, bg="#171a30", fg="#eaebf1", activeforeground="#eaebf1", activebackground="#171a30", selectcolor="#171a30", cursor="hand2", borderwidth=0, indicatoron=False, compound="center")
     tombol_mandiri.pack(side="left", padx=15)
     tombol_mandiri.bind('<Enter>', lambda event, imgs=button_method_on: onhover_image(event, imgs))
     tombol_mandiri.bind('<Leave>', lambda event, imgs=button_method_off: onleave_image(event, imgs))
     # BNI
-    tombol_bni = tk.Radiobutton(frame_pilih_pembayaran, text="BNI", value="bni", variable=selected_method, font=("Segoe UI", 14, "bold"), image=button_method_off, selectimage=button_method_on, bg="#171a30", fg="#eaebf1", activeforeground="#eaebf1", activebackground="#171a30", selectcolor="#171a30", cursor="hand2", borderwidth=0, indicatoron=False, compound="center")
+    tombol_bni = tk.Radiobutton(frame_pilih_pembayaran, text="mobik", value="bni", variable=selected_method, font=("Segoe UI", 14, "bold"), image=button_method_off, selectimage=button_method_on, bg="#171a30", fg="#eaebf1", activeforeground="#eaebf1", activebackground="#171a30", selectcolor="#171a30", cursor="hand2", borderwidth=0, indicatoron=False, compound="center")
     tombol_bni.pack(side="left", padx=15)
     tombol_bni.bind('<Enter>', lambda event, imgs=button_method_on: onhover_image(event, imgs))
     tombol_bni.bind('<Leave>', lambda event, imgs=button_method_off: onleave_image(event, imgs))
     # BRI
-    tombol_bri = tk.Radiobutton(frame_pilih_pembayaran, text="BRI", value="bri", variable=selected_method, font=("Segoe UI", 14, "bold"), image=button_method_off, selectimage=button_method_on, bg="#171a30", fg="#eaebf1", activeforeground="#eaebf1", activebackground="#171a30", selectcolor="#171a30", cursor="hand2", borderwidth=0, indicatoron=False, compound="center")
+    tombol_bri = tk.Radiobutton(frame_pilih_pembayaran, text="phonewallet", value="bri", variable=selected_method, font=("Segoe UI", 14, "bold"), image=button_method_off, selectimage=button_method_on, bg="#171a30", fg="#eaebf1", activeforeground="#eaebf1", activebackground="#171a30", selectcolor="#171a30", cursor="hand2", borderwidth=0, indicatoron=False, compound="center")
     tombol_bri.pack(padx=15)
     tombol_bri.bind('<Enter>', lambda event, imgs=button_method_on: onhover_image(event, imgs))
     tombol_bri.bind('<Leave>', lambda event, imgs=button_method_off: onleave_image(event, imgs))
@@ -473,10 +465,10 @@ def TopUp():
     # Masukkan Kode Validasi
     frame_validasi = tk.Frame(saldo_frame, background="#171a30")
     frame_validasi.pack(pady=15)
-    label_kode = tk.Label(frame_validasi, text="Masukkan Kode Validasi", font=("Segoe UI", 16, "bold"), fg="#fc094c", bg="#171a30").pack()
+    label_kode = tk.Label(frame_validasi, text="Enter code", font=("Segoe UI", 16, "bold"), fg="#fc094c", bg="#171a30").pack()
     entry_kode = tk.Entry(frame_validasi, width=26, font=("Segoe UI", 13), textvariable=kode_valid, fg="#eaebf1", border=0, bg="#171a30", insertbackground="#eaebf1")
     entry_kode.pack(pady=5)
-    entry_kode.insert(0, "Kode Validasi")
+    entry_kode.insert(0, "code")
     entry_kode.bind("<FocusIn>", lambda event: onclick_entry(event, "Kode Validasi"))
     entry_kode.bind("<FocusOut>", lambda event: onleave_entry(event, "Kode Validasi"))
     entry_kode_border = tk.Frame(frame_validasi,width=240, height=2, bg="#eaebf1").pack(pady=(0, 15))
@@ -508,11 +500,7 @@ def Riwayat():
 
     scrollable_riwayat_frame = tk.Frame(my_canvas, background="#171a30")
     my_canvas.create_window((center_x_history, 0), window=scrollable_riwayat_frame, anchor="nw")
-
-    # Judul
     riwayat_title = tk.Label(scrollable_riwayat_frame, text="Riwayat Pembelian", font=("Segoe UI", "26", "bold"), background="#171a30", fg="#fc094c").pack(pady=20)
-
-    # Frame Tabel
     tabel_frame = tk.Frame(scrollable_riwayat_frame, bg="#171a30")
     tabel_frame.pack()
 
@@ -520,7 +508,7 @@ def Riwayat():
     row_riwayat = len(list_user[index_user]['riwayat'])
     tabel_frame.columnconfigure(6)
     tabel_frame.rowconfigure(row_riwayat+1)
-    header = ["Waktu Beli", "Lokasi", "Judul", "Jadwal Tayang", "Ticket", "Total"]
+    header = ["buytime", "hall", "movie", "date and time", "Ticket", "Total"]
 
     # Pencetakan
     for i in range(row_riwayat+1):
@@ -531,8 +519,6 @@ def Riwayat():
             for j in range(6):
                 label = tk.Label(tabel_frame, text=list_user[index_user]['riwayat'][i-1][header[j]], font=("Segoe UI", 13, "bold"), bg="#252c54", fg="#eaebf1", width=17, wraplength=170).grid(row=i, column=j, sticky="nswe", ipady=7, ipadx=5, padx=3, pady=3) 
 
-
-# FRAME LIST MOVIE
 def ListMovie(show_type):
     # TRANSISI Jika Click Image
     def klik_img(index_movie):
@@ -555,8 +541,6 @@ def ListMovie(show_type):
                 return now_img_off[i]
             else:
                 return upcoming_img_off[i]
-
-    # Fungsi Memilih Title Frame
     def pilih_title():
         if show_type == "nowshowing":
             return str("Film Sedang Tayang Di XX5")
