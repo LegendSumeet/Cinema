@@ -14,10 +14,10 @@ tomorrow_date = (datetime.date.today() + datetime.timedelta(days=1)).strftime("%
 time_now = datetime.datetime.now()
 hour_minute_now = time_now.strftime("%H:%M")
 
-# Set Locale (For Currency)
+
 locale.setlocale(locale.LC_ALL, 'id-ID')
 
-# Root Window
+
 root = tk.Tk()
 screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
@@ -26,15 +26,15 @@ root.iconbitmap("images/xx5.ico")
 root.state('zoomed')
 root.configure(background="#171a30")
 
-# Mencari Posisi Center sb x
+
 center_x_info = (screen_width - 980) * 0.5
 center_x_seat = (screen_width - 450) * 0.5
 center_x_history = (screen_width - 1147) * 0.5
 
-# Image logo XX5
+
 xx5_img = tk.PhotoImage(file="images/xx5.png")
 img_xx5_heading = tk.PhotoImage(file="images/xx5heading.png")
-# Imagemovie now
+
 now_img_on = [tk.PhotoImage(file=movie_now[i]["img_on"]) for i in range(4)]
 now_img_off = [tk.PhotoImage(file=movie_now[i]['img_off']) for i in range(4)]
 # Image movie upcoming 
