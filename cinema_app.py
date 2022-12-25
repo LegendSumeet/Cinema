@@ -543,9 +543,9 @@ def ListMovie(show_type):
                 return upcoming_img_off[i]
     def pilih_title():
         if show_type == "nowshowing":
-            return str("Film Sedang Tayang Di XX5")
+            return str("Movies Now Showing")
         else:
-            return str("Film Akan Tayang Di XX5")
+            return str("upcoming Movies")
 
     # Fungsi Memilih Title Movie
     def pilih_movie(i):
