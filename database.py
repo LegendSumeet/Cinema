@@ -1,10 +1,7 @@
-# Data User
-list_user = [{'nama': 'sumeet', 'email': 'v@g.com', 'password': 'sumeet', 'saldo': 99050, 'riwayat': [{'buytime': '00:41 26-12-2022', 'hall': 'PVR\nStudio 1', 'movie': 'Black Adam', 'date and time': '13:30 26-12-2022', 'Ticket': 'E3', 'Total': 'Rp450,00'}, {'buytime': '00:47 26-12-2022', 'hall': 'PVR\nStudio 4', 'movie': 'ONE PIECE FILM: RED', 'date and time': '13:30 26-12-2022', 'Ticket': 'A7', 'Total': 'Rp500,00'}]}]
 
-# Data Lokasi
+list_user = [{'nama': 'sumeet', 'email': 'v@g.com', 'password': 'sumeet', 'saldo': 348550, 'riwayat': [{'buytime': '00:41 26-12-2022', 'hall': 'PVR\nStudio 1', 'movie': 'Black Adam', 'date and time': '13:30 26-12-2022', 'Ticket': 'E3', 'Total': 'Rp450,00'}, {'buytime': '00:47 26-12-2022', 'hall': 'PVR\nStudio 4', 'movie': 'ONE PIECE FILM: RED', 'date and time': '13:30 26-12-2022', 'Ticket': 'A7', 'Total': 'Rp500,00'}, {'buytime': '00:54 26-12-2022', 'hall': 'PVR\nStudio 3', 'movie': 'DOCTOR G', 'date and time': '13:30 27-12-2022', 'Ticket': 'A1', 'Total': 'Rp500,00'}]}]
 location =  ['PVR', 'INOX', 'KORUM MALL']
 
-# Data Waktu
 time_str = ['13:30', '16:00', '18:30', '21:00']
 time_int = [
             {'hour': 13, 'minute': 30},
@@ -13,39 +10,39 @@ time_int = [
             {'hour': 21, 'minute': 00},
         ]
 
-# Data Token & Uang
+
 list_validasi = {
     50000: {
-            'gopay': '50gopay',
-            'ovo': '50ovo',
-            'bca': '50bca',
-            'mandiri': '50mandiri',
-            'bni': '50bni',
-            'bri': '50bri',
+            'gopay': '4',
+            'ovo': '4',
+            'bca': '4',
+            'mandiri': '4',
+            'bni': '4',
+            'bri': '4',
         },
     100000: {
-        'gopay': '100gopay',
-        'ovo': '100ovo',
-        'bca': '100bca',
-        'mandiri': '100mandiri',
-        'bni': '100bni',
-        'bri': '100bri',
+        'gopay': '4',
+        'ovo': '4',
+        'bca': '4',
+        'mandiri': '4',
+        'bni': '4',
+        'bri': '4',
     },
     150000: {
-        'gopay': '150gopay',
-        'ovo': '150ovo',
-        'bca': '150bca',
-        'mandiri': '150mandiri',
-        'bni': '150bni',
-        'bri': '150bri',
+        'gopay': '4',
+        'ovo': '4',
+        'bca': '4',
+        'mandiri': '4',
+        'bni': '4',
+        'bri': '4',
     },
     200000: {
-        'gopay': '200gopay',
-        'ovo': '200ovo',
-        'bca': '200bca',
-        'mandiri': '200mandiri',
-        'bni': '200bni',
-        'bri': '200bri',
+       'gopay': '4',
+        'ovo': '4',
+        'bca': '4',
+        'mandiri': '4',
+        'bni': '4',
+        'bri': '4',
     }
 }
 
@@ -150,7 +147,7 @@ movie_now = [
         'writer': 'Saurabh Bharat',
         'cast': 'Ayushmann Khuranna, Rakul Preet Singh, Shefali Shah, Sheeba Chaddha, Abhinay Raj Singh, Paresh Pahuja, Jhumma Mitra, Azzy Bagria',
         'price': 500,
-        'sold_seat': {'PVR_2': {}, 'INOX_2': {}, 'KORUM MALL_2': {}}
+        'sold_seat': {'PVR_2': {'27-12-2022': {'13:30': [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [True, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]}}, 'INOX_2': {}, 'KORUM MALL_2': {}}
     },
     {
         'img_on': 'images/onepiece_on.png',
