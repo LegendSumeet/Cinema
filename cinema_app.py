@@ -37,37 +37,37 @@ img_xx5_heading = tk.PhotoImage(file="images/xx5heading.png")
 
 now_img_on = [tk.PhotoImage(file=movie_now[i]["img_on"]) for i in range(4)]
 now_img_off = [tk.PhotoImage(file=movie_now[i]['img_off']) for i in range(4)]
-# Image movie upcoming 
+
 upcoming_img_on = [tk.PhotoImage(file=movie_upcoming[i]['img_on']) for i in range(4)]
 upcoming_img_off = [tk.PhotoImage(file=movie_upcoming[i]['img_off']) for i in range(4)]
-# Image button login/register
+
 button_logreg_on = tk.PhotoImage(file="images/logreg_on.png")
 button_logreg_off = tk.PhotoImage(file="images/logreg_off.png")
-# Image button di heading
+
 button_heading_on = tk.PhotoImage(file="images/heading_on.png")
 button_heading_off = tk.PhotoImage(file="images/heading_off.png")
-# Image button pemilihan waktu
+
 button_time_on = tk.PhotoImage(file="images/time_on.png")
 button_time_off = tk.PhotoImage(file="images/time_off.png")
-# Image button memilih nominal
+
 button_price_on = tk.PhotoImage(file="images/price_on.png")
 button_price_off = tk.PhotoImage(file="images/price_off.png")
-# Image button memilih metode pembayaran
+
 button_method_on = tk.PhotoImage(file="images/method_on.png")
 button_method_off = tk.PhotoImage(file="images/method_off.png")
-# Image Kursi
+
 seat_free = tk.PhotoImage(file="images/seat_free.png")
 seat_own = tk.PhotoImage(file="images/seat_own.png")
 seat_sold = tk.PhotoImage(file="images/seat_sold.png")
-# Image Screen
+
 screen_img = tk.PhotoImage(file="images/screen.png")
-# Image confirm & cancel button
+
 cancelconfirm_off = tk.PhotoImage(file="images/cancelconfirm_off.png")
 confirm_on = tk.PhotoImage(file="images/confirm_on.png")
 cancel_on = tk.PhotoImage(file="images/cancel_on.png")
 
 
-# Callback function bila Entry/input box kosong
+
 def onclick_entry(event, word):
     if event.widget.get() == f"{word}" and (event.widget.get() == "Password" or event.widget.get() == "confirm password" or event.widget.get() == "code invitation"):
         event.widget.delete(0, "end")
@@ -87,7 +87,7 @@ def onhover_image(event, img):
 def onleave_image(event, img):
     event.widget.config(image=img)
 
-# Fungsi Mengupdate Waktu Sekarang
+
 def update_time():
     global today_date, tomorrow_date, time_now, hour_minute_now
     today_date = datetime.date.today().strftime("%d-%m-%Y")
@@ -96,9 +96,9 @@ def update_time():
     hour_minute_now = time_now.strftime("%H:%M")
 
 
-# FRAME LOGIN
+
 def Login():
-    # Call Back FUnction Bila Klik Login
+
     def login():
         akun_email = email.get()
         akun_password = pasw.get()
@@ -115,26 +115,26 @@ def Login():
         else:
             showerror("Invalid", "Email and Password doesn't match")
     
-    # Transisi dari Login ke Register
+
     def LoginToRegister():
         login_frame.forget()
         Register()
     
-    # TRANSISI LOGIN KE LIST MOVIE
+
     def LoginToList():
         login_frame.forget()
         ListMovie("nowshowing")
     
-    # Main Frame
+
     global login_frame
     login_frame = tk.Frame(root, bg="#171a30")
     login_frame.pack()
 
-    # Logo & Title
+
     label_gambar = tk.Label(login_frame, image=xx5_img, border=0, bg="#171a30").pack()
     heading = tk.Label(login_frame, text="Login", fg="#fc094c", bg="#171a30", font=("Segoe UI", 23, "bold")).pack(pady=10)
 
-    # Email
+ 
     email = tk.Entry(login_frame, width=36, fg="#eaebf1", border=0, bg="#171a30", font=("Segoe UI", 11), insertbackground="#eaebf1")
     email.pack()
     email_border = tk.Frame(login_frame,width=295,height=2,bg="#eaebf1").pack(pady=(5, 20))
@@ -142,7 +142,7 @@ def Login():
     email.bind("<FocusIn>", lambda event: onclick_entry(event, "Email"))
     email.bind("<FocusOut>", lambda event: onleave_entry(event, "Email"))
 
-    # Password
+
     pasw = tk.Entry(login_frame, width=36, fg="#eaebf1", border=0, bg="#171a30", font=("Segoe UI", 11), insertbackground="#eaebf1")
     pasw.pack()
     pasword_border = tk.Frame(login_frame, width=295, height=2, bg="#eaebf1").pack(pady=(5, 20))
@@ -150,20 +150,20 @@ def Login():
     pasw.bind("<FocusIn>", lambda event: onclick_entry(event, "Password"))
     pasw.bind("<FocusOut>", lambda event: onleave_entry(event, "Password"))
     
-    # Tombol Login
+
     tombol_login = tk.Button(login_frame, text="Login", command=login, image=button_logreg_off, font=("Segoe UI", 13, "bold"), activebackground="#171a30", activeforeground="#eaebf1", fg="#eaebf1", bg="#171a30", cursor="hand2", borderwidth=0, compound="center")
     tombol_login.pack(pady=(0, 5))
     tombol_login.bind('<Enter>', lambda event, imgs=button_logreg_on: onhover_image(event, imgs))
     tombol_login.bind('<Leave>', lambda event, imgs=button_logreg_off: onleave_image(event, imgs))
 
-    # Tidak punya akun
+
     noacc_frame = tk.Frame(login_frame, bg="#171a30")
     label_register = tk.Label(noacc_frame, text="New to us do ", fg="#eaebf1", bg="#171a30", font=("Segoe UI", 11, "bold")).pack(side="left")
     tombol_register = tk.Button(noacc_frame, text="Register", command=LoginToRegister,  font=("Segoe UI", 11, "bold"), borderwidth=0, cursor="hand2", bg="#171a30", fg="#fc094c", activebackground="#171a30", activeforeground="#fc094c").pack()
     noacc_frame.pack()
 
 
-# REGISTER FRAME
+
 def Register():
     # TRANSISI REGISTER KE LOGIN
     def RegisterToLogin():
@@ -197,21 +197,21 @@ def Register():
             write_file.write(content)
             write_file.close()
 
-            showinfo("Register", "Registrasi berhasil!")
+            showinfo("Register", "register done!")
             RegisterToLogin()
         else:
-            showerror("Invalid", "Password tidak cocok")
+            showerror("Invalid", "Password doesn't match")
 
-    # Main Frame
+ 
     global register_frame
     register_frame = tk.Frame(root, bg="#171a30")
     register_frame.pack()
 
-    # Logo & Title
+  
     label_gambar = tk.Label(register_frame, image=xx5_img, border=0, bg="#171a30").pack()
     heading = tk.Label(register_frame, text="Register", fg="#fc094c", bg="#171a30", font=("Segoe UI", 23, "bold")).pack(pady=10)
 
-    # Input nama lengkap
+ 
     nama = tk.Entry(register_frame, width=36, fg="#eaebf1", border=0, bg="#171a30", font=("Segoe UI", 11), insertbackground="#eaebf1")
     nama.pack()
     nama.insert(0, "Name")
@@ -235,7 +235,7 @@ def Register():
     pasw.bind("<FocusOut>", lambda event: onleave_entry(event, "Password"))
     frame3 = tk.Frame(register_frame, width=295, height=2, bg="#eaebf1").pack(pady=(5, 20))
 
-    # Konfirmasi Password
+
     conf_pasw = tk.Entry(register_frame, width=36, fg="#eaebf1", border=0, bg="#171a30", font=("Segoe UI", 11), insertbackground="#eaebf1")
     conf_pasw.pack()
     conf_pasw.insert(0, "confirm password")
@@ -243,42 +243,42 @@ def Register():
     conf_pasw.bind("<FocusOut>", lambda event: onleave_entry(event, "Konfirmasi Password"))
     frame3 = tk.Frame(register_frame, width=295, height=2, bg="#eaebf1").pack(pady=(5, 20))
 
-    # Tombol Register
+ 
     tombol_register = tk.Button(register_frame, text="Register", command=klik_register, image=button_logreg_off, font=("Segoe UI", 13, "bold"), activebackground="#171a30", activeforeground="#eaebf1", fg="#eaebf1", bg="#171a30", cursor="hand2", borderwidth=0, compound="center")
     tombol_register.pack(pady=(0, 5))
     tombol_register.bind('<Enter>', lambda event, imgs=button_logreg_on: onhover_image(event, imgs))
     tombol_register.bind('<Leave>', lambda event, imgs=button_logreg_off: onleave_image(event, imgs))
 
-    # Sudah punya akun
+
     sudah_akun = tk.Frame(register_frame, bg="#171a30")
     ada_akun = tk.Label(sudah_akun, text="already have account", fg="#eaebf1", bg="#171a30", font=("Segoe UI", 11, "bold")).pack(side="left")
     tombol_login = tk.Button(sudah_akun, width=6, text="Login", border=0, bg="#171a30", cursor="hand2", fg="#fc094c", activebackground="#171a30", activeforeground="#fc094c", font=("Segoe UI", 11, "bold"), command=RegisterToLogin).pack()
     sudah_akun.pack()
 
 
-# FRAME HEADER
+
 def MenuHeader(frame, name):
     # HEADING NOW PLAYING
     def ToNowPlaying(frame):
         frame.forget()
         ListMovie("nowshowing")
 
-    # HEADING UPCOMING
+
     def ToUpcoming(frame):
         frame.forget()
         ListMovie("upcoming")
 
-    # HEADING SALDO
+ 
     def ToSaldo(frame):
         frame.forget()
         TopUp()
 
-    # HEADING RIWAYAT
+   
     def ToRiwayat(frame):
         frame.forget()
         Riwayat()
 
-    # HEADING LOGOUT
+
     def ClickLogOut(frame):
         confirmation = askyesno(title='Confirmation', message='Are you sure that you want to logout?')
         if confirmation:
@@ -309,15 +309,14 @@ def MenuHeader(frame, name):
         else:
             return button_heading_off         
     
-    # Main Frame
+
     header_frame = tk.Frame(frame, bg="#171a30")
     header_frame.pack(pady=(10, 0))
 
-    # Left Frame (Logo, Now Playing, Upcoming)
     left_frame = tk.Frame(header_frame, bg="#171a30")
     left_frame.pack(side="left", padx=(0, 45))
     label_gambar = tk.Label(left_frame, image=img_xx5_heading, bg="#171a30").pack(side="left", padx=10)
-    # Now Playing
+
     now_playing = tk.Button(left_frame, text="Now Playing", command=lambda frame=frame: ToNowPlaying(frame), image=now_playing_img(name), font=("Segoe UI", 14, "bold"), bg="#171a30", fg="#eaebf1", activeforeground="#eaebf1", activebackground="#171a30", cursor="hand2", borderwidth=0, compound="center")
     now_playing.pack(side="left", anchor="center", padx=10)
     if name != "movielist_nowshowing":
@@ -331,7 +330,7 @@ def MenuHeader(frame, name):
         up_coming.bind('<Enter>', lambda event, imgs=button_heading_on: onhover_image(event, imgs))
         up_coming.bind('<Leave>', lambda event, imgs=button_heading_off: onleave_image(event, imgs))
 
-    # Right Frame (Saldo, Logout, Name)
+
     right_frame = tk.Frame(header_frame, bg="#171a30")
     right_frame.pack(side="right", padx=(45, 0))
     # Topup
@@ -341,14 +340,14 @@ def MenuHeader(frame, name):
         topup.bind('<Enter>', lambda event, imgs=button_heading_on: onhover_image(event, imgs))
         topup.bind('<Leave>', lambda event, imgs=button_heading_off: onleave_image(event, imgs))
     
-    # Riwayat
+
     riwayat = tk.Button(right_frame, text="History", command=lambda frame=frame: ToRiwayat(frame), image=riwayat_img(name), font=("Segoe UI", 14, "bold"), bg="#171a30", fg="#eaebf1", activeforeground="#eaebf1", activebackground="#171a30", cursor="hand2", borderwidth=0, compound="center")
     riwayat.pack(side="left", padx=10)
     if name != "riwayat":
         riwayat.bind('<Enter>', lambda event, imgs=button_heading_on: onhover_image(event, imgs))
         riwayat.bind('<Leave>', lambda event, imgs=button_heading_off: onleave_image(event, imgs))
     
-    # Logout
+
     logout = tk.Button(right_frame, text="Log Out", command=lambda frame=frame: ClickLogOut(frame), image=button_heading_off, font=("Segoe UI", 14, "bold"), bg="#171a30", fg="#eaebf1", activeforeground="#eaebf1", activebackground="#171a30", cursor="hand2", borderwidth=0, compound="center")
     logout.pack(side="left", padx=10)
     logout.bind('<Enter>', lambda event, imgs=button_heading_on: onhover_image(event, imgs))
@@ -357,7 +356,7 @@ def MenuHeader(frame, name):
 
 # FRAME Top Up
 def TopUp():   
-    # Fungsi Pengecek Validasi Pembayaran
+
     def isValid():
         method = selected_method.get()
         price = selected_price.get()
@@ -386,12 +385,12 @@ def TopUp():
             else:
                 showerror("Top Up Gagal!", f"Top up Anda gagal! Coba masukkan kode yang benar!")
 
-    # Main Frame
+
     global saldo_frame
     saldo_frame = tk.Frame(root, bg="#171a30")
     saldo_frame.pack()
 
-    # Header
+
     MenuHeader(saldo_frame, "saldo")
 
 
@@ -399,30 +398,30 @@ def TopUp():
     sisa_saldo = tk.StringVar()
     sisa_saldo.set(locale.currency(list_user[index_user]['saldo'], grouping=True))
 
-    # Title
+
     saldo_title = tk.Label(saldo_frame, text="Top Up", font=("Segoe UI", "30", "bold"), background="#171a30", fg="#fc094c").pack(pady=15)
 
-    # Frame Memilih Nominal Topup
+
     frame_pilih_nominal = tk.Frame(saldo_frame, background="#171a30")
     frame_pilih_nominal.pack(pady=15)
     selected_price = tk.IntVar(value=0)
     label_nominal_topup = tk.Label(frame_pilih_nominal, text="select amount", font=("Segoe UI", 16, "bold"), fg="#fc094c", bg="#171a30").pack(pady=5)
-    # 50 ribu
+
     tombol_50ribu = tk.Radiobutton(frame_pilih_nominal, text="Rs50.000,00", value=50000, variable=selected_price, font=("Segoe UI", 14, "bold"), image=button_price_off, selectimage=button_price_on, bg="#171a30", fg="#eaebf1", activeforeground="#eaebf1", activebackground="#171a30", selectcolor="#171a30", cursor="hand2", borderwidth=0, indicatoron=False, compound="center")
     tombol_50ribu.pack(side="left", padx=20)
     tombol_50ribu.bind('<Enter>', lambda event, imgs=button_price_on: onhover_image(event, imgs))
     tombol_50ribu.bind('<Leave>', lambda event, imgs=button_price_off: onleave_image(event, imgs))
-    # 100 Ribu
+   
     tombol_100ribu = tk.Radiobutton(frame_pilih_nominal, text="Rs100.000,00", value=100000, variable=selected_price, font=("Segoe UI", 14, "bold"), image=button_price_off, selectimage=button_price_on, bg="#171a30", fg="#eaebf1", activeforeground="#eaebf1", activebackground="#171a30", selectcolor="#171a30", cursor="hand2", borderwidth=0, indicatoron=False, compound="center")
     tombol_100ribu.pack(side="left", padx=20)
     tombol_100ribu.bind('<Enter>', lambda event, imgs=button_price_on: onhover_image(event, imgs))
     tombol_100ribu.bind('<Leave>', lambda event, imgs=button_price_off: onleave_image(event, imgs))
-    # 150 Ribu
+
     tombol_150ribu = tk.Radiobutton(frame_pilih_nominal, text="Rs150.000,00", value=150000, variable=selected_price, font=("Segoe UI", 14, "bold"), image=button_price_off, selectimage=button_price_on, bg="#171a30", fg="#eaebf1", activeforeground="#eaebf1", activebackground="#171a30", selectcolor="#171a30", cursor="hand2", borderwidth=0, indicatoron=False, compound="center")
     tombol_150ribu.pack(side="left", padx=20)
     tombol_150ribu.bind('<Enter>', lambda event, imgs=button_price_on: onhover_image(event, imgs))
     tombol_150ribu.bind('<Leave>', lambda event, imgs=button_price_off: onleave_image(event, imgs))
-    # 200 Ribu
+
     tombol_200ribu = tk.Radiobutton(frame_pilih_nominal, text="Rs200.000,00", value=200000, variable=selected_price, font=("Segoe UI", 14, "bold"), image=button_price_off, selectimage=button_price_on, bg="#171a30", fg="#eaebf1", activeforeground="#eaebf1", activebackground="#171a30", selectcolor="#171a30", cursor="hand2", borderwidth=0, indicatoron=False, compound="center")
     tombol_200ribu.pack(padx=20)
     tombol_200ribu.bind('<Enter>', lambda event, imgs=button_price_on: onhover_image(event, imgs))
@@ -431,38 +430,38 @@ def TopUp():
     frame_pilih_pembayaran.pack(pady=15)
     selected_method = tk.StringVar(value="N/A")
     label_metode_pembayaran = tk.Label(frame_pilih_pembayaran, text="select the mode", font=("Segoe UI", 16, "bold"), fg="#fc094c", bg="#171a30").pack(pady=5)
-    # Gopay
+  
     tombol_gopay = tk.Radiobutton(frame_pilih_pembayaran, text="GooglePay", value="gopay", variable=selected_method, font=("Segoe UI", 14, "bold"), image=button_method_off, selectimage=button_method_on, bg="#171a30", fg="#eaebf1", activeforeground="#eaebf1", activebackground="#171a30", selectcolor="#171a30", cursor="hand2", borderwidth=0, indicatoron=False, compound="center")
     tombol_gopay.pack(side="left", padx=15)
     tombol_gopay.bind('<Enter>', lambda event, imgs=button_method_on: onhover_image(event, imgs))
     tombol_gopay.bind('<Leave>', lambda event, imgs=button_method_off: onleave_image(event, imgs))
-    # Ovo
+
     tombol_ovo = tk.Radiobutton(frame_pilih_pembayaran, text="paytm", value="ovo", variable=selected_method, font=("Segoe UI", 14, "bold"), image=button_method_off, selectimage=button_method_on, bg="#171a30", fg="#eaebf1", activeforeground="#eaebf1", activebackground="#171a30", selectcolor="#171a30", cursor="hand2", borderwidth=0, indicatoron=False, compound="center")
     tombol_ovo.pack(side="left", padx=15)
     tombol_ovo.bind('<Enter>', lambda event, imgs=button_method_on: onhover_image(event, imgs))
     tombol_ovo.bind('<Leave>', lambda event, imgs=button_method_off: onleave_image(event, imgs))
-    # BCA
+
     tombol_bca = tk.Radiobutton(frame_pilih_pembayaran, text="phonepay", value="bca", variable=selected_method, font=("Segoe UI", 14, "bold"), image=button_method_off, selectimage=button_method_on, bg="#171a30", fg="#eaebf1", activeforeground="#eaebf1", activebackground="#171a30", selectcolor="#171a30", cursor="hand2", borderwidth=0, indicatoron=False, compound="center")
     tombol_bca.pack(side="left", padx=15)
     tombol_bca.bind('<Enter>', lambda event, imgs=button_method_on: onhover_image(event, imgs))
     tombol_bca.bind('<Leave>', lambda event, imgs=button_method_off: onleave_image(event, imgs))
-    # Mandiri
+
     tombol_mandiri = tk.Radiobutton(frame_pilih_pembayaran, text="upi", value="mandiri", variable=selected_method, font=("Segoe UI", 14, "bold"), image=button_method_off, selectimage=button_method_on, bg="#171a30", fg="#eaebf1", activeforeground="#eaebf1", activebackground="#171a30", selectcolor="#171a30", cursor="hand2", borderwidth=0, indicatoron=False, compound="center")
     tombol_mandiri.pack(side="left", padx=15)
     tombol_mandiri.bind('<Enter>', lambda event, imgs=button_method_on: onhover_image(event, imgs))
     tombol_mandiri.bind('<Leave>', lambda event, imgs=button_method_off: onleave_image(event, imgs))
-    # BNI
+ 
     tombol_bni = tk.Radiobutton(frame_pilih_pembayaran, text="mobik", value="bni", variable=selected_method, font=("Segoe UI", 14, "bold"), image=button_method_off, selectimage=button_method_on, bg="#171a30", fg="#eaebf1", activeforeground="#eaebf1", activebackground="#171a30", selectcolor="#171a30", cursor="hand2", borderwidth=0, indicatoron=False, compound="center")
     tombol_bni.pack(side="left", padx=15)
     tombol_bni.bind('<Enter>', lambda event, imgs=button_method_on: onhover_image(event, imgs))
     tombol_bni.bind('<Leave>', lambda event, imgs=button_method_off: onleave_image(event, imgs))
-    # BRI
+
     tombol_bri = tk.Radiobutton(frame_pilih_pembayaran, text="phonewallet", value="bri", variable=selected_method, font=("Segoe UI", 14, "bold"), image=button_method_off, selectimage=button_method_on, bg="#171a30", fg="#eaebf1", activeforeground="#eaebf1", activebackground="#171a30", selectcolor="#171a30", cursor="hand2", borderwidth=0, indicatoron=False, compound="center")
     tombol_bri.pack(padx=15)
     tombol_bri.bind('<Enter>', lambda event, imgs=button_method_on: onhover_image(event, imgs))
     tombol_bri.bind('<Leave>', lambda event, imgs=button_method_off: onleave_image(event, imgs))
 
-    # Masukkan Kode Validasi
+
     frame_validasi = tk.Frame(saldo_frame, background="#171a30")
     frame_validasi.pack(pady=15)
     label_kode = tk.Label(frame_validasi, text="Enter code", font=("Segoe UI", 16, "bold"), fg="#fc094c", bg="#171a30").pack()
@@ -472,15 +471,15 @@ def TopUp():
     entry_kode.bind("<FocusIn>", lambda event: onclick_entry(event, "Kode Validasi"))
     entry_kode.bind("<FocusOut>", lambda event: onleave_entry(event, "Kode Validasi"))
     entry_kode_border = tk.Frame(frame_validasi,width=240, height=2, bg="#eaebf1").pack(pady=(0, 15))
-    tombol_bayar = tk.Button(frame_validasi, text="Bayar", command=isValid, font=("Segoe UI", 14, "bold"), image=button_method_off, bg="#171a30", fg="#eaebf1", activeforeground="#eaebf1", activebackground="#171a30", cursor="hand2", borderwidth=0, compound="center")
+    tombol_bayar = tk.Button(frame_validasi, text="Go", command=isValid, font=("Segoe UI", 14, "bold"), image=button_method_off, bg="#171a30", fg="#eaebf1", activeforeground="#eaebf1", activebackground="#171a30", cursor="hand2", borderwidth=0, compound="center")
     tombol_bayar.pack()
     tombol_bayar.bind('<Enter>', lambda event, imgs=button_method_on: onhover_image(event, imgs))
     tombol_bayar.bind('<Leave>', lambda event, imgs=button_method_off: onleave_image(event, imgs))
 
 
-# FRAME RIWAYAT
+
 def Riwayat():
-    # Main Frame
+
     global riwayat_frame
     riwayat_frame = tk.Frame(root, bg="#171a30")
     riwayat_frame.pack(fill="both", expand=1)
@@ -554,10 +553,10 @@ def ListMovie(show_type):
     movielist_frame.pack()
     MenuHeader(movielist_frame, f"movielist_{show_type}")
 
-    # Title Movie List
+
     movielist_title = tk.Label(movielist_frame, text=pilih_title(), font=("Segoe UI", "30", "bold"), background="#171a30", fg="#fc094c").pack(ipadx=10, ipady=10, pady=10)
 
-    # Mencetak 4 Movie
+
     fourmovie_frame = tk.Frame(movielist_frame, bg="#171a30")
     fourmovie_frame.pack()       
 
